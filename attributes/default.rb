@@ -24,6 +24,11 @@ default['signalsciences']['debug'] = {
   'log-uploads' => 0,
 }
 
+# reverse proxy mode
+default['signalsciences']['reveres_proxy_name'] = ''
+default['signalsciences']['reveres_proxy_listener'] = ''
+default['signalsciences']['reveres_proxy_upstreams'] = ['']
+
 ## ------------------------------------------------------------------
 ## APACHE MODULE CONFIGURATION
 ## ------------------------------------------------------------------

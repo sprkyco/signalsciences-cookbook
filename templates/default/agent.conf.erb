@@ -9,5 +9,13 @@ client-ip-header = "<%= node['signalsciences']['client_ip_header'] %>"
 <% node['signalsciences']['debug'].each do |flag, val| %>
 <% if val > 0 %>
 debug-<%= flag %> = <%= val %>
+<% if not node['signalsciences']['reverse_proxy_name'].empty? %>
+[revproxy-listener.<%= node['signalsciences']['reverse_proxy_name'] %>]
 <% end %>
+<% if not node['signalsciences']['reverse_proxy_listener'].empty? %>
+listener = "<%= node['signalsciences']['reverse_proxy_listener'] %>"
+<% end %>
+<% node['signalsciences']['upstreams'].each do |ip| %>
+<% if ip > 0 %>
+upstreams = "<%=ip%>,"
 <% end %>
